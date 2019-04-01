@@ -1,0 +1,55 @@
+/*
+** EPITECH PROJECT, 2018
+** Project clean_str
+** File description:
+** Main file.
+*/
+
+#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
+
+int is_next_space(char a, char b)
+{
+	if (a == ' ' && (b == ' ' || b == 0 || b == '\t'))
+		return (1);
+	if (a == '\t' && (b == '\t' || b == 0 || b == ' '))
+		return (1);
+	return (0);
+}
+
+int is_space_first(char *str, int to_check)
+{
+	int i = 0;
+
+	while (i <= to_check) {
+		if (str[i] == ' ' || str[i] == '\t')
+			i = i + 1;
+		else
+			return (1);
+	}
+	return (0);
+}
+
+char *my_strclear(char *str)
+{
+	int i = 0;
+	int z = 0;
+	int check = 0;
+	int check2 = 0;
+	char *res = malloc(strlen(str) + 1);
+
+	while (str[i]) {
+		check = is_space_first(str, i);
+		check2 = is_next_space(str[i], str[i + 1]);
+	        if (str[i] == '\t' && check && !check2) {
+			res[z] = ' ';
+			z += 1;
+		} else if (check && !check2) {
+			res[z] = str[i];
+			z += 1;
+		}
+		i = i + 1;
+	}
+	return (res);
+}
