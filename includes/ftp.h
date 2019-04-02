@@ -8,7 +8,8 @@
 #ifndef NWP_MYFTP_2018_FTP_H
 #define NWP_MYFTP_2018_FTP_H
 
-#include <zconf.h>
+#include <sys/types.h>
+#include <unistd.h>
 #include <stdint.h>
 #include "user.h"
 
