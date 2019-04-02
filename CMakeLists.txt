@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.13)
+cmake_minimum_required(VERSION 3.0)
 project(NWP_myftp_2018)
 
 set(CMAKE_C_STANDARD 99)
