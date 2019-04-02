@@ -18,10 +18,8 @@ int create_active_socket(ftp_cmd_socket_t *ftp_cmd_socket, char **ip)
 {
     char *sock_ip;
     struct sockaddr_in address;
-    struct protoent *pr_e = NULL;
 
-    pr_e = getprotobyname("TCP");
-    ftp_cmd_socket->data_channel->socket = socket(AF_INET, SOCK_STREAM, pr_e->p_proto);
+    ftp_cmd_socket->data_channel->socket = socket(AF_INET, SOCK_STREAM, 0);
     if (ftp_cmd_socket->data_channel->socket == -1)
         return (1);
     asprintf(&sock_ip, "%s.%s.%s.%s", ip[0], ip[1], ip[2], ip[3]);

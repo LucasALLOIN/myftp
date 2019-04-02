@@ -34,5 +34,6 @@
 #define START_DATA_TRANFERT "150 Opening BINARY mode data connection.\n"
 #define DATA_TRANSFER_OK "226 Transfer complete.\n"
 #define CLIENT_CLOSE "221 Service closing control connection.\n"
+#define SYST_TYPE "215 UNIX Type: L8\n"
 
 #endif //NWP_MYFTP_2018_FTP_MESSAGE_H

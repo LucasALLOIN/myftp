@@ -22,6 +22,7 @@ ftp_command_t ftp_command[] = {
     {"RETR", &retr},
     {"STOR", &stor},
     {"PORT", &port},
+    {"SYST", &syst},
     {"NOOP", &noop},
     {"QUIT", &quit},
     {NULL, NULL}

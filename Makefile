@@ -5,7 +5,7 @@
 ## desc
 ##
 
-cc	=	gcc
+CC	=	gcc
 
 SRC	=	sources/main.c							\
 		sources/count_to_split.c				\
@@ -26,6 +26,7 @@ SRC	=	sources/main.c							\
 		sources/commands/retr.c					\
 		sources/commands/stor.c					\
 		sources/commands/user.c					\
+		sources/commands/syst.c
 
 CFLAGS	=	-I./includes/ -Werror -Wextra -W -Wall -Wparentheses -Wsign-compare -Wpointer-sign -Wuninitialized -Wunused-but-set-variable
 
