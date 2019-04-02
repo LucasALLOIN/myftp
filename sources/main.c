@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <netinet/in.h>
-#include <zconf.h>
 #include <string.h>
 #include <errno.h>
 #include <ftp.h>
