@@ -46,9 +46,6 @@ clean:
 fclean:	clean
 	rm -f $(NAME)
 
-exe:
-	gcc $(OBJ) -o $(NAME)
-
 docker:
 	sudo docker run -it -v `pwd`:/home/epitest -w /home/epitest epitechcontent/epitest-docker /bin/bash
 

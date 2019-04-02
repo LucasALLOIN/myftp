@@ -17,7 +17,7 @@ build:
   #     - "*.o"
 
 # run tests using the binary built before
-test:
-  stage: test
-  script:
-    - ./test_ftp.sh
+# test:
+#  stage: test
+#  script:
+#    - ./test_ftp.sh
