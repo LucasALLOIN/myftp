@@ -5,7 +5,7 @@
 ## desc
 ##
 
-CC	=	cc
+CC	=	gcc
 
 SRC	=	sources/main.c							\
 		sources/count_to_split.c				\
