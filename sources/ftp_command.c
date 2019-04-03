@@ -10,7 +10,7 @@
 #include <ftp_message.h>
 #include "commands.h"
 
-ftp_command_t ftp_command[] = {
+const ftp_command_t ftp_command[] = {
     {"USER", &user},
     {"PASS", &pass},
     {"PWD", &pwd},
@@ -25,14 +25,16 @@ ftp_command_t ftp_command[] = {
     {"SYST", &syst},
     {"NOOP", &noop},
     {"QUIT", &quit},
-    {NULL, NULL}
+    {0}
 };
 
 void launch_ftp_command(ftp_cmd_socket_t *socket, char *command, char **argv)
 {
+    ftp_command_t ftp_command1 = {0};
+
     if (command == NULL)
         return;
-    for (int i = 0; ftp_command[i].command != NULL; i++) {
+    for (int i = 0; memcmp(&ftp_command1, &(ftp_command[i]), sizeof(ftp_command_t)) != 0; i++) {
         if (strcasecmp(command, ftp_command[i].command) == 0) {
             ftp_command[i].callback(socket, command, argv);
             return;

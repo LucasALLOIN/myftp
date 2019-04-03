@@ -71,6 +71,7 @@ ftp_command_channel_t *init_command_socket(uint16_t port)
     ftp_command_channel_t *res = malloc(sizeof(ftp_command_channel_t));
     ftp_cmd_socket_t *master = malloc(sizeof(ftp_cmd_socket_t));
     struct in_addr var = {0};
+    int option = 1;
 
     address.sin_family = AF_INET;
     address.sin_addr = var;
@@ -82,6 +83,7 @@ ftp_command_channel_t *init_command_socket(uint16_t port)
     res->client_socket = NULL;
     if ((res->master_socket->socket = socket(AF_INET, SOCK_STREAM, 0)) == 0)
         print_and_exit("socket failed", 84);
+    setsockopt(res->master_socket->socket, SOL_SOCKET, SO_REUSEADDR, &option, sizeof(option));
     if (bind(res->master_socket->socket, (struct sockaddr *) &address, sizeof(address)) < 0)
         print_and_exit("bind failed", 84);
     if (listen(res->master_socket->socket, 0) < 0)

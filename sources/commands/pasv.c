@@ -16,9 +16,11 @@ int create_passive_socket(ftp_cmd_socket_t *ftp_cmd_socket)
     ftp_data_socket_t *data = ftp_cmd_socket->data_channel;
     struct sockaddr_in address;
     socklen_t adress_len;
+    int option = 1;
 
     if ((data->socket = socket(AF_INET, SOCK_STREAM, 0)) == -1)
         return (1);
+    setsockopt(data->socket, SOL_SOCKET, SO_REUSEADDR, &option, sizeof(option));
     address.sin_family = AF_INET;
     address.sin_addr.s_addr = INADDR_ANY;
     address.sin_port = 0;

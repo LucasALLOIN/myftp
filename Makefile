@@ -28,7 +28,7 @@ SRC	=	sources/main.c							\
 		sources/commands/user.c					\
 		sources/commands/syst.c
 
-CFLAGS	=	-I./includes/ -Werror -Wextra -W -Wall -Wparentheses -Wsign-compare -Wpointer-sign -Wuninitialized -Wunused-but-set-variable
+CFLAGS	=	-I./includes/ -Werror -Wextra -W -Wall -Wparentheses -Wsign-compare -Wpointer-sign -Wuninitialized -Wunused-but-set-variable -g
 
 OBJ	=	$(SRC:.c=.o)
 
