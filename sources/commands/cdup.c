@@ -12,7 +12,7 @@
 
 void cdup(ftp_cmd_socket_t *this, char *command, char **argv)
 {
-    char *work_dir;
+    char work_dir[256];
 
     (void) command;
     (void) argv;
@@ -20,12 +20,12 @@ void cdup(ftp_cmd_socket_t *this, char *command, char **argv)
         write(this->socket, PLEASE_LOGIN, strlen(PLEASE_LOGIN));
         return;
     }
-    work_dir = strdup(this->work_dir);
+    getcwd(work_dir, 256);
+    chdir(this->work_dir);
     if (chdir("..") == 0) {
         getcwd(this->work_dir, 256);
-        chdir(work_dir);
         write(this->socket, CHANGE_DIR_OK, strlen(CHANGE_DIR_OK));
     } else
         write(this->socket, CHANGE_DIR_FAILED, strlen(CHANGE_DIR_FAILED));
-    free(work_dir);
+    chdir(work_dir);
 }
