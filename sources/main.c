@@ -29,21 +29,24 @@ void print_and_exit(char *error, int exit_code)
 
 void client_command_callback(ftp_cmd_socket_t *this)
 {
-    char buffer[1024] = {0};
-    char *clear;
+    char *line = NULL;
+    size_t len = 0;
     char **argv;
+    FILE *stream = fdopen(this->socket, "r");
 
-    ssize_t read_res = read(this->socket, buffer, 1024);
-    if (read_res == 0) {
+    if (stream == NULL)
+        return;
+    ssize_t read_res = getline(&line, &len, stream);
+    if (read_res == -1) {
         delete_client(this->master, this);
         return;
     }
-    buffer[read_res - 1] = 0;
-    if (read_res >= 2 && buffer[read_res - 2] == '\r')
-        buffer[read_res - 2] = 0;
-    clear = my_strclear(buffer);
-    argv = my_str_to_array(buffer, ' ');
-    free(clear);
+    printf("%ld %ld", len, read_res);
+    line[read_res - 1] = 0;
+    if (read_res >= 2 && line[read_res - 2] == '\r')
+        line[read_res - 2] = 0;
+    argv = my_str_to_array(line, ' ');
+    free(line);
     launch_ftp_command(this, argv[0], argv);
 }
 

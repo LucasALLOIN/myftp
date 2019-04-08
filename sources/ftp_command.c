@@ -23,6 +23,7 @@ const ftp_command_t ftp_command[] = {
     {"STOR", &stor},
     {"PORT", &port},
     {"SYST", &syst},
+    {"HELP", &help},
     {"NOOP", &noop},
     {"QUIT", &quit},
     {0}

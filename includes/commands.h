@@ -29,6 +29,7 @@ void dele(ftp_cmd_socket_t *this, char *command, char **argv);
 void retr(ftp_cmd_socket_t *this, char *command, char **argv);
 void stor(ftp_cmd_socket_t *this, char *command, char **argv);
 void syst(ftp_cmd_socket_t *this, char *command, char **argv);
+void help(ftp_cmd_socket_t *this, char *command, char **argv);
 void launch_ftp_command(ftp_cmd_socket_t *socket, char *command, char **argv);
 
 #endif //NWP_MYFTP_2018_COMMANDS_H

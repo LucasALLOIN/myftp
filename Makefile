@@ -26,7 +26,8 @@ SRC	=	sources/main.c							\
 		sources/commands/retr.c					\
 		sources/commands/stor.c					\
 		sources/commands/user.c					\
-		sources/commands/syst.c
+		sources/commands/syst.c					\
+		sources/commands/help.c
 
 CFLAGS	=	-I./includes/ -Werror -Wextra -W -Wall -Wparentheses -Wsign-compare -Wpointer-sign -Wuninitialized -Wunused-but-set-variable -g
 
