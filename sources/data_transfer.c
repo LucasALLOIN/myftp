@@ -45,6 +45,7 @@ void exec_data_transfert(ftp_cmd_socket_t *this, void (*data_callback)(ftp_cmd_s
         exec_data_child(this, data_callback, command, argv);
         exit(0);
     } else {
+        close(this->data_channel->socket);
         this->data_channel->socket = 0;
         this->data_channel->status = NOT_SET;
     }
