@@ -17,7 +17,7 @@ void exec_data_child(ftp_cmd_socket_t *this, void (*data_callback)(ftp_cmd_socke
     struct sockaddr_in address;
     socklen_t size = sizeof(address);
     int send_socket = (this->data_channel->status == PORT)
-                      ? create_active_socket(this) : accept(
+                      ? this->data_channel->socket : accept(
             this->data_channel->socket, (struct sockaddr *) &address, &size);
 
     if (send_socket == -1) {

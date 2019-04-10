@@ -62,6 +62,5 @@ unsigned int tab_length(char **argv);
 int asprintf(char **strp, const char *fmt, ...);
 void free_tab(char **tab);
 void exec_data_transfert(ftp_cmd_socket_t *this, void (*data_callback)(ftp_cmd_socket_t *this, char *command, char **argv, int send_socket), char *command, char **argv);
-int create_active_socket(ftp_cmd_socket_t *ftp_cmd_socket);
 
 #endif //NWP_MYFTP_2018_FTP_H
