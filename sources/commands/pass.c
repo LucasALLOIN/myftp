@@ -37,8 +37,8 @@ void pass(ftp_cmd_socket_t *this, char *command, char **argv)
         write(this->socket, USER_LOGGED_IN, strlen(USER_LOGGED_IN));
         this->logged = 1;
         if (strcasecmp(this->user->username, "anonymous") == 0) {
-            strcpy(this->work_dir, this->master->def_path);
-            chdir(this->work_dir);
+            chdir(this->master->def_path);
+            getcwd(this->work_dir, 256);
             return;
         }
         if (chdir(this->user->root_dir) == 0) {
@@ -51,8 +51,8 @@ void pass(ftp_cmd_socket_t *this, char *command, char **argv)
         write(this->socket, USER_LOGGED_IN, strlen(USER_LOGGED_IN));
         this->logged = 1;
         if (strcasecmp(this->user->username, "anonymous") == 0) {
-            strcpy(this->work_dir, this->master->def_path);
-            chdir(this->work_dir);
+            chdir(this->master->def_path);
+            getcwd(this->work_dir, 256);
             return;
         }
         if (chdir(this->user->root_dir) == 0) {
