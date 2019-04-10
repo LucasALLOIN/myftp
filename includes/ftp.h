@@ -24,7 +24,6 @@ enum data_channel_status {
 typedef struct ftp_data_socket_s {
     int socket;
     uint16_t port;
-    char **ip;
     enum data_channel_status status;
 } ftp_data_socket_t;
 
