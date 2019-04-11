@@ -25,6 +25,7 @@ typedef struct ftp_data_socket_s {
     int socket;
     uint16_t port;
     enum data_channel_status status;
+    char **ip;
 } ftp_data_socket_t;
 
 typedef struct ftp_cmd_socket_s {
