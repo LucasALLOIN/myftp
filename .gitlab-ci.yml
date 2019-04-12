@@ -24,4 +24,5 @@ deploy:
   stage: deploy
   script:
     - echo $TARGET_REPO
+    - ssh-keygen -R git.epitech.eu
     - git-push $TARGET_REPO
