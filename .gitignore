@@ -8,7 +8,6 @@
 *.editorconfig
 *.gcda
 *.gcno
-vgcore*
 myftp
 test_ftp.sh
 cmake-build-debug
