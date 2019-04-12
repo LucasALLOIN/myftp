@@ -27,7 +27,6 @@ deploy:
     - mkdir -p ~/.ssh
     - echo -e "host git.epitech.eu\n HostName git.epitech.eu\n IdentityFile ~/.ssh/epitech\n StrictHostKeyChecking no\n User git" > ~/.ssh/config
     - echo "$SSH_PRIVATE_KEY" > ~/.ssh/epitech
-    - git config core.sshCommand "ssh -i ~/.ssh/epitech -F /dev/null"
     - git remote remove epitech || true
     - git remote add epitech $TARGET_REPO || true
     - git push epitech $CI_COMMIT_REF_NAME
