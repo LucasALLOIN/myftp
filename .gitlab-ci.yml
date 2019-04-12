@@ -27,6 +27,6 @@ deploy:
     - mkdir -p ~/.ssh
     - echo "$SSH_PRIVATE_KEY" > ~/.ssh/epitech
     - git config core.sshCommand "ssh -i ~/.ssh/epitech -F /dev/null"
-    - git remote add epitech $TARGET_REPO
+    - git remote add epitech $TARGET_REPO || true
     - git push gitlab $TARGET_REPO
     - rm -rf ~/.ssh/epitech
