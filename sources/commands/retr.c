@@ -37,9 +37,22 @@ void retr_data_transfert(ftp_cmd_socket_t *this, char *command, char **argv, int
 
 void retr(ftp_cmd_socket_t *this, char *command, char **argv)
 {
+    int file;
+    char buf[256];
+
+    getcwd(buf, 256);
     if (tab_length(argv) == 1) {
         write(this->socket, OPEN_FAILED, strlen(OPEN_FAILED));
         return;
     }
+    chdir(this->work_dir);
+    file = open(argv[1], O_RDONLY);
+    if (file == -1) {
+        write(this->socket, OPEN_FAILED, strlen(OPEN_FAILED));
+        chdir(buf);
+        return;
+    }
+    chdir(buf);
+    close(file);
     exec_data_transfert(this, &retr_data_transfert, command, argv);
 }
