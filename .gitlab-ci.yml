@@ -29,5 +29,5 @@ deploy:
     - git config core.sshCommand "ssh -i ~/.ssh/epitech -F /dev/null"
     - git remote remove epitech || true
     - git remote add epitech $TARGET_REPO || true
-    - git push epitech $TARGET_REPO
+    - git push epitech $CI_COMMIT_REF_NAME
     - rm -rf ~/.ssh/epitech
