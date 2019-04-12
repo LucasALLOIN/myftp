@@ -1,4 +1,3 @@
-
 build:
   image: epitechcontent/epitest-docker
   stage: build
@@ -24,4 +23,5 @@ deploy:
   image: ilyasemenov/gitlab-ci-git-push
   stage: deploy
   script:
+    - echo $TARGET_REPO
     - git-push $TARGET_REPO
