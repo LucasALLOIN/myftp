@@ -30,5 +30,5 @@ deploy:
     - git config core.sshCommand "ssh -o \"StrictHostKeyChecking=no\" -i ~/.ssh/epitech -F /dev/null"
     - git remote remove epitech || true
     - git remote add epitech $TARGET_REPO || true
-    - git push epitech $CI_COMMIT_REF_NAME
+    - git push epitech $CI_COMMIT_REF_NAME --force-with-lease
     - rm -rf ~/.ssh/epitech
