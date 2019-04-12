@@ -53,7 +53,8 @@ typedef struct ftp_command_channel_s {
     char *def_path;
 } ftp_command_channel_t;
 
-void add_client(ftp_command_channel_t *channel, int socket, char *in_addr, void (*read_callback)(struct ftp_cmd_socket_s *this));
+void add_client(ftp_command_channel_t *channel, int socket, char *in_addr, void
+(*read_callback)(struct ftp_cmd_socket_s *this));
 void delete_client(ftp_command_channel_t *channel, ftp_cmd_socket_t *to_delete);
 int count_to_split(char *cmd, char to_split);
 char *my_strclear(char *str);
@@ -61,6 +62,9 @@ char **my_str_to_array(char *cmd, char to_s);
 unsigned int tab_length(char **argv);
 int asprintf(char **strp, const char *fmt, ...);
 void free_tab(char **tab);
-void exec_data_transfert(ftp_cmd_socket_t *this, void (*data_callback)(ftp_cmd_socket_t *this, char *command, char **argv, int send_socket), char *command, char **argv);
+void exec_data_transfert(ftp_cmd_socket_t *this, void
+(*data_callback)(ftp_cmd_socket_t *this, char *command, char **argv, int
+send_socket), char *command, char **argv);
+void *my_malloc(size_t size);
 
 #endif //NWP_MYFTP_2018_FTP_H

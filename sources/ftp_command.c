@@ -35,7 +35,8 @@ void launch_ftp_command(ftp_cmd_socket_t *socket, char *command, char **argv)
 
     if (command == NULL)
         return;
-    for (int i = 0; memcmp(&ftp_command1, &(ftp_command[i]), sizeof(ftp_command_t)) != 0; i++) {
+    for (int i = 0; memcmp(&ftp_command1, &(ftp_command[i]),
+    sizeof(ftp_command_t)) != 0; i++) {
         if (strcasecmp(command, ftp_command[i].command) == 0) {
             ftp_command[i].callback(socket, command, argv);
             return;

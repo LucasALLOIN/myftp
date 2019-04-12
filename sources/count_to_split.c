@@ -18,10 +18,10 @@
 
 int count_to_split(char *cmd, char to_split)
 {
-	int c = 1;
+    int c = 1;
 
-	for (int i = 0; cmd[i]; i = i + 1)
-		if (cmd[i] == to_split)
-			c = c + 1;
-	return (c);
+    for (int i = 0; cmd[i]; i = i + 1)
+        if (cmd[i] == to_split)
+            c = c + 1;
+    return (c);
 }

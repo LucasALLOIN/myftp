@@ -14,7 +14,8 @@
 #include <fcntl.h>
 #include "ftp.h"
 
-void retr_data_transfert(ftp_cmd_socket_t *this, char *command, char **argv, int data_socket)
+void retr_data_transfert(ftp_cmd_socket_t *this, char *command, char **argv,
+int data_socket)
 {
     int file = open(argv[1], O_RDONLY);
     char buffer[4096];

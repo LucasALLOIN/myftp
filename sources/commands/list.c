@@ -13,7 +13,8 @@
 #include <wait.h>
 #include "ftp.h"
 
-void list_data_transfert(ftp_cmd_socket_t *this, char *command, char **argv, int data_socket)
+void list_data_transfert(ftp_cmd_socket_t *this, char *command, char **argv,
+int data_socket)
 {
     char **arg;
     int pid;
