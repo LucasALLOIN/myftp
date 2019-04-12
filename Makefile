@@ -8,6 +8,8 @@
 CC	=	gcc
 
 SRC	=	sources/main.c							\
+		sources/server.c						\
+		sources/utils.c						\
 		sources/count_to_split.c				\
 		sources/data_transfer.c					\
 		sources/ftp_command.c					\

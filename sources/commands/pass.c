@@ -22,6 +22,7 @@ int pass_base(ftp_cmd_socket_t *this)
         write(this->socket, ALREADY_LOGGED_IN, strlen(ALREADY_LOGGED_IN));
         return (1);
     }
+    (void) this;
     if (this->user->username == NULL) {
         this->user = NULL;
         write(this->socket, BAD_LOGIN, strlen(BAD_LOGIN));
@@ -67,13 +68,13 @@ void pass_check(ftp_cmd_socket_t *this)
 
 void pass(ftp_cmd_socket_t *this, char *command, char **argv)
 {
-    (void) command;
     if (pass_base(this))
         return;
     if (this->user->password == NULL) {
         pass_null_pass(this, argv);
         return;
     }
+    (void) command;
     if (strcmp(this->user->password,
     (tab_length(argv) == 1) ? "" : argv[1]) == 0) {
         pass_check(this);

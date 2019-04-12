@@ -66,5 +66,11 @@ void exec_data_transfert(ftp_cmd_socket_t *this, void
 (*data_callback)(ftp_cmd_socket_t *this, char *command, char **argv, int
 send_socket), char *command, char **argv);
 void *my_malloc(size_t size);
+void print_and_exit(char *error, int exit_code);
+void client_command_callback(ftp_cmd_socket_t *this);
+void master_command_callback(ftp_cmd_socket_t *this);
+ftp_command_channel_t *init_command_socket(uint16_t port);
+void set_add_cli_value(ftp_cmd_socket_t *ftp_socket, socket_list_t *new_node,
+char *in_addr, int socket);
 
 #endif //NWP_MYFTP_2018_FTP_H

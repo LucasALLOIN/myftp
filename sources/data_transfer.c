@@ -44,6 +44,7 @@ send_socket), char *command, char **argv)
         exit(0);
     } else if (this->data_channel->status == PORT)
         send_socket = this->data_channel->socket;
+    (void) this;
     if (this->data_channel->status == PASV)
         send_socket = accept(this->data_channel->socket,
         (struct sockaddr *) &address, &size);
