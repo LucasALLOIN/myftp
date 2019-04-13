@@ -16,6 +16,7 @@ const int user_number = 2;
 const user_t user_tab[] = {
     {"Anonymous", NULL, "."},
     {"lucas", "lucas", "/home/lucas"},
+    {"test", "test", "/home"},
     {NULL, NULL, NULL}
 };
 
