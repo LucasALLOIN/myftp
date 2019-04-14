@@ -37,7 +37,9 @@ void port(ftp_cmd_socket_t *this, char *command, char **argv)
     } else if (tab_length(argv) == 1) {
         write(this->socket, ERROR_PORT, strlen(ERROR_PORT));
         return;
-    } else if (this->data_channel->status == PASV ||
+    }
+    (void) command;
+    if (this->data_channel->status == PASV ||
     this->data_channel->status == PORT) {
         close(this->data_channel->socket);
         this->data_channel->socket = 0;

@@ -42,6 +42,7 @@ void launch_ftp_command(ftp_cmd_socket_t *socket, char *command, char **argv)
             return;
         }
     }
+    (void) socket;
     if (socket->logged == 1) {
         write(socket->socket, UNKNOW_COMMAND, strlen(UNKNOW_COMMAND));
     } else {
